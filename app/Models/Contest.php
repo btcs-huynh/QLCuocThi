@@ -10,6 +10,8 @@ class Contest extends Model
     /** @use HasFactory<\Database\Factories\ContestFactory> */
     use HasFactory;
 
+    public $timestamps = false;
+    
     protected $table = 'contests';
 
     protected $fillable = [

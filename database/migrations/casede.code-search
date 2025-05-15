@@ -1,0 +1,27 @@
+# Query: casede
+# ContextLines: 1
+
+7 results - 4 files
+
+database/migrations/2025_05_14_012946_create_submissions_table.php:
+  15              $table->id();
+  16:             $table->foreignId('contest_id')->constrained('contests', 'id')->onDelete('cascade');
+  17:             $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');
+  18              $table->string('title');
+
+database/migrations/2025_05_14_012957_create_notifications_table.php:
+  15              $table->id();
+  16:             $table->foreignId('contest_id')->constrained('contests', 'id')->onDelete('cascade');
+  17              $table->string('message');
+
+database/migrations/2025_05_14_013007_create_votes_table.php:
+  15              $table->id();
+  16:             $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');
+  17:             $table->foreignId('submission_id')->constrained('submissions', 'id')->onDelete('cascade');
+  18              $table->timestamp('created_at')->useCurrent();
+
+database/migrations/2025_05_14_021902_create_contest_user_table.php:
+  14          Schema::create('contest_user', function (Blueprint $table) {
+  15:             $table->foreignId('contest_id')->constrained('contests', 'id')->onDelete('cascade');
+  16:             $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');
+  17  
